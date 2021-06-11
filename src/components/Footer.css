@@ -1,0 +1,38 @@
+Footer{
+    display: flex;
+    background-color: black;
+    height: 100px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*logo's in de footer*/
+#logo1, #logo2, #logo3{
+    display: flex;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 20px;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+#logo1{
+    background-image: url(../assets/untappd.png);
+}
+
+#logo2{
+    background-image: url(../assets/vivino.jpg);
+}
+
+#logo3{
+    background-image: url(../assets/patron.jpg);
+}
+
+#logoContainer{
+    justify-content: space-evenly;
+    display: flex;
+    width: 400px;
+    height: auto;
+}
