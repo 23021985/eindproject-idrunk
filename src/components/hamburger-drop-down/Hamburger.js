@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+import "./Hamburger-drop-down.css"
 
 
 function Hamburger(){
@@ -13,11 +15,11 @@ function Hamburger(){
             </label>
 
             <nav className="menu1">
-                <a className="link1" href="">Inloggen</a>
-                <a className="link1" href="">Locaties</a>
-                <a className="link1" href="">Socials</a>
-                <a className="link1" href="">Blog</a>
-                <a className="link1 kbutton-nav" href="">Contact</a>
+                <Link className="link1" to="/login">Inloggen</Link>
+                <Link className="link1" to="/locaties">Locaties</Link>
+                <Link className="link1" to="/socials">Socials</Link>
+                <Link className="link1" to="/blog">Blog</Link>
+                <Link className="link1 button-nav" to="/contact">Contact</Link>
             </nav>
         </nav>
  </section>

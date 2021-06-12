@@ -19,15 +19,15 @@ Footer{
 }
 
 #logo1{
-    background-image: url(../assets/untappd.png);
+    background-image: url(../../assets/untappd.png);
 }
 
 #logo2{
-    background-image: url(../assets/vivino.jpg);
+    background-image: url(../../assets/vivino.jpg);
 }
 
 #logo3{
-    background-image: url(../assets/patron.jpg);
+    background-image: url(../../assets/patron.jpg);
 }
 
 #logoContainer{

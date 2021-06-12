@@ -1,0 +1,20 @@
+.blog{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: 400px;
+    height: 400px;
+    color: white;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px gray;
+    background-image: url("/src/assets/cocktail.jpeg");
+}
+
+.blog-holder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

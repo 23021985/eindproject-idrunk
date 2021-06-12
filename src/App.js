@@ -10,18 +10,21 @@ import {
 
 from 'react-router-dom';
 import './App.css';
-import Header from "./components/header";
-import Footer from "./components/Footer";
+import Header from "./components/header/header";
+import Footer from "./components/footer/Footer";
 import Main from "./components/Main";
 import Aside from "./components/Aside";
 import HomePage from "./pagesIdrunk/HomePage";
-import Subscribe from "./pagesIdrunk/Subscribe";
-import Login from "./pagesIdrunk/Login";
+import Subscribe from "./pagesIdrunk/subscribe/Subscribe";
+import Login from "./pagesIdrunk/Login/Login";
 import Locaties from "./pagesIdrunk/Locaties";
 import StorkContactPage from "./pagesStork/StorkContactPage";
 import StorkHomePage from "./pagesStork/StorkHomePage";
 
-import Input from "./components/Input";
+import Input from "./components/input/Input";
+import Blog from "./pagesIdrunk/blog/Blog";
+import Socials from "./pagesIdrunk/Socials";
+import ContactPaginaIdrunk from "./pagesIdrunk/ContactPaginaIdrunk";
 
 function App() {
   return (
@@ -32,6 +35,19 @@ function App() {
                     <Aside/>
 
                             <Switch>
+                                <Route path="/contact">
+                                    <ContactPaginaIdrunk/>
+                                </Route>
+
+
+                                <Route path="/socials">
+                                    <Socials/>
+                                </Route>
+
+                                <Route path="/blog">
+                                    <Blog/>
+                                </Route>
+
                                 <Route path="/storkhomepage">
                                     <StorkHomePage/>
                                 </Route>

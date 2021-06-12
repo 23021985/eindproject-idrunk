@@ -14,7 +14,7 @@ function Footer(){
                        <div id="logo3"></div>
                    </label>
 
-                   <div className={"buttons"}>
+               <div className={"buttons"}>
                    <ul>
 
                        <li>
@@ -28,7 +28,6 @@ function Footer(){
                        <li>
                            <Link to="/Contact" activeClassName="active-link">Contact</Link>
                        </li>
-
 
                    </ul>
                </div>

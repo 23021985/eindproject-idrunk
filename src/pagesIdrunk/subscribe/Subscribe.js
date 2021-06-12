@@ -1,7 +1,8 @@
 import {NavLink, Link} from "react-router-dom";
 import React, { useRef } from "react";
 import {set, useForm} from "react-hook-form";
-import Input from "../components/Input";
+import Input from "../../components/input/Input";
+import "./Subscribe.css"
 
 function Subscribe(){
     const {register, handleSubmit, formState:{errors}, watch} = useForm();
@@ -9,7 +10,7 @@ function Subscribe(){
 
     return(
 <main>
-        <form id="formInschrijven" onSubmit={handleSubmit(onSubmit)}>
+        <form className="formInschrijven" onSubmit={handleSubmit(onSubmit)}>
             <h3>Inschrijven</h3>
 
             <Input
