@@ -1,0 +1,38 @@
+.formStork{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    width: 400px;
+    height: 400px;
+    color: white;
+    padding: 30px;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px gray;
+    background-image: url("/src/assets/cocktail.jpeg");
+    text-align: center;
+}
+
+.storkContactHolder{
+    width: 100%;
+    margin: 30px;
+    /*position: absolute;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.kaartHolder{
+    width: 100%;
+    margin: 30px;
+    box-sizing: border-box;
+    /*position: relative;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}

@@ -1,4 +1,4 @@
-.formInschrijven{
+.locatieLabel{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,7 +7,8 @@
     width: 400px;
     height: 400px;
     color: white;
-    padding: 30px;
+    margin-top: 30px;
+    padding: 31px;
     border: 1px solid white;
     border-radius: 20px;
     box-shadow: 1px 1px 1px gray;
@@ -15,10 +16,16 @@
     text-align: center;
 }
 
-label{
-    margin: 5px;
-    /*padding: 20px;*/
+.linksToBars{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
-h3{
-    padding: -20px;
+
+.locatieContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }

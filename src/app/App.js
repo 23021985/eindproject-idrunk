@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from '../assets/logo.svg';
 import React, {useState} from "react";
 import {set, useForm} from "react-hook-form";
 import {
@@ -10,21 +10,21 @@ import {
 
 from 'react-router-dom';
 import './App.css';
-import Header from "./components/header/header";
-import Footer from "./components/footer/Footer";
-import Main from "./components/Main";
-import Aside from "./components/Aside";
-import HomePage from "./pagesIdrunk/HomePage";
-import Subscribe from "./pagesIdrunk/subscribe/Subscribe";
-import Login from "./pagesIdrunk/Login/Login";
-import Locaties from "./pagesIdrunk/Locaties";
-import StorkContactPage from "./pagesStork/StorkContactPage";
-import StorkHomePage from "./pagesStork/StorkHomePage";
-
-import Input from "./components/input/Input";
-import Blog from "./pagesIdrunk/blog/Blog";
-import Socials from "./pagesIdrunk/Socials";
-import ContactPaginaIdrunk from "./pagesIdrunk/ContactPaginaIdrunk";
+import Header from "../components/header/header";
+import Footer from "../components/footer/Footer";
+import Main from "../components/Main";
+import Aside from "../components/aside/Aside";
+import HomePage from "../pagesIdrunk/HomePage";
+import Subscribe from "../pagesIdrunk/subscribe/Subscribe";
+import Login from "../pagesIdrunk/login/Login";
+import Locaties from "../pagesIdrunk/locaties/Locaties";
+import StorkContactPage from "../pagesStork/StorkContactPage/StorkContactPage";
+import StorkHomePage from "../pagesStork/storkHomePage/StorkHomePage";
+import Input from "../components/input/Input";
+import Blog from "../pagesIdrunk/blog/Blog";
+import Socials from "../pagesIdrunk/socials/Socials";
+import ContactPaginaIdrunk from "../pagesIdrunk/contactPageIdrunk/ContactPaginaIdrunk";
+import StorkReserveren from "../pagesStork/storkReserveren/StorkReserveren";
 
 function App() {
   return (
@@ -35,10 +35,13 @@ function App() {
                     <Aside/>
 
                             <Switch>
+                                <Route path="/stork/reserveren">
+                                    <StorkReserveren/>
+                                </Route>
+
                                 <Route path="/contact">
                                     <ContactPaginaIdrunk/>
                                 </Route>
-
 
                                 <Route path="/socials">
                                     <Socials/>

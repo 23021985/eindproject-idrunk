@@ -33,6 +33,8 @@ Footer{
 #logoContainer{
     justify-content: space-evenly;
     display: flex;
+    flex-direction: row;
     width: 400px;
     height: auto;
 }
+

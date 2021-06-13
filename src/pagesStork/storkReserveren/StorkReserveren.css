@@ -1,0 +1,7 @@
+.logoHolder{
+    width: 250px;
+    height: 202px;
+    background-image: url("/src/assets/logo_stork.png");
+    background-size: cover;
+    z-index: 2;
+}
