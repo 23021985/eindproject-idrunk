@@ -7,7 +7,6 @@ import {
     Route,
     Link, NavLink,
 }
-
 from 'react-router-dom';
 import './App.css';
 import Header from "../components/header/header";
