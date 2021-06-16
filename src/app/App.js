@@ -24,6 +24,7 @@ import Blog from "../pagesIdrunk/blog/Blog";
 import Socials from "../pagesIdrunk/socials/Socials";
 import ContactPaginaIdrunk from "../pagesIdrunk/contactPageIdrunk/ContactPaginaIdrunk";
 import StorkReserveren from "../pagesStork/storkReserveren/StorkReserveren";
+import Order from "../pagesStork/Order";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
                     <Aside/>
 
                             <Switch>
+                                <Route path="/stork/order">
+                                    <Order/>
+                                </Route>
+
                                 <Route path="/stork/reserveren">
                                     <StorkReserveren/>
                                 </Route>

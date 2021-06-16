@@ -6,7 +6,7 @@
     background-position: center;
     z-index: 2;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-content: center;
 }
@@ -15,9 +15,7 @@ h1{
     color: red;
 }
 
-.containerLogoFoto{
-    max-height: 100vh;
-    background-image: url("/src/assets/drank2.jpeg");
+.formReserveren{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -26,13 +24,23 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
 
+.containerLogoFoto{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .datePickerHolder{
     width: 475px;
     /*margin: 1em auto;*/
-    padding: 1em;
+    /*padding: 1em;*/
     background-color: black;
     color: white;
     border: 1px solid #f0f0f0;
@@ -40,21 +48,9 @@ h1{
     text-align: center;
     box-shadow: 0 2px 4px #00000018;
 }
-/*achtergrond timeslots*/
-.fukbtW{
-    background-color: black;
-}
-.hvtuvo{
-    color: white;
-}
-.datePickerHolder {
-    width: 475px;
-    /* margin: 1em auto; */
-    padding: 1em;
-    background-color: black;
-    color: white;
-    border: 1px solid #f0f0f0;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px #00000018;
+
+.myTimePicker{
+    color: black;
+    width: 200px;
+    height: 200px;
 }

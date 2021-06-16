@@ -10,6 +10,7 @@ function StorkHomePage(props) {
 
             <Link to="/stork/reserveren" activeClassName="active-link">Stork Reserveren</Link>
             <Link to="/storkContactPage" activeClassName="active-link">Stork Contact</Link>
+            <Link to="/stork/order" activeClassName="active-link">Stork Order</Link>
         </div>
         </div>
     );
