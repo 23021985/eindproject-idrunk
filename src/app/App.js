@@ -7,6 +7,7 @@ import {
     Route,
     Link, NavLink,
 }
+
 from 'react-router-dom';
 import './App.css';
 import Header from "../components/header/header";
@@ -17,18 +18,19 @@ import HomePage from "../pagesIdrunk/HomePage";
 import Subscribe from "../pagesIdrunk/subscribe/Subscribe";
 import Login from "../pagesIdrunk/login/Login";
 import Locaties from "../pagesIdrunk/locaties/Locaties";
-import StorkContactPage from "../pagesStork/StorkContactPage/StorkContactPage";
+import StorkContactPage from "../pagesStork/storkContactPage/StorkContactPage";
 import StorkHomePage from "../pagesStork/storkHomePage/StorkHomePage";
 import Input from "../components/input/Input";
 import Blog from "../pagesIdrunk/blog/Blog";
 import Socials from "../pagesIdrunk/socials/Socials";
 import ContactPaginaIdrunk from "../pagesIdrunk/contactPageIdrunk/ContactPaginaIdrunk";
 import StorkReserveren from "../pagesStork/storkReserveren/StorkReserveren";
-import Order from "../pagesStork/Order";
+import Order from "../pagesStork/order/Order";
+import {DrinkProvider} from "../components/menu/DrinksContext"
 
 function App() {
   return (
-
+<DrinkProvider>
       <Router>
           <Header/>
                 <div className={"container1"}>
@@ -84,7 +86,7 @@ function App() {
                 </div>
             <Footer/>
       </Router>
-
+// </DrinkProvider>
   );
 }
 export default App;

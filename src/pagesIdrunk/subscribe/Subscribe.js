@@ -89,16 +89,18 @@ function Subscribe(){
                 maxLengthError="de leeftijd mag niet meer dan 3 cijfers bevatten"
             />
 
-            <Input
-                name="straat"
-                labelId="straatId"
-                type="text"
-                placeholder="uw straatnaam hier.."
-                register={register}
-                errors={errors}
-                minLength={2}
-                minLengthError="De straatnaam moet minimaal 3 leestekens bevatten"
-            />
+            {/*<Input*/}
+            {/*    name="straat"*/}
+            {/*    labelId="straatId"*/}
+            {/*    type="text"*/}
+            {/*    placeholder="uw straatnaam hier.."*/}
+            {/*    register={register}*/}
+            {/*    errors={errors}*/}
+            {/*    minLength={2}*/}
+            {/*    minLengthError="De straatnaam moet minimaal 3 leestekens bevatten"*/}
+            {/*/>*/}
+
+
             {/*<label htmlFor="voornaam" id="firstNameId">Voornaam*/}
             {/*    <input type="text" placeholder="Voornaam..." name="voornaam" id="voornaam" {...register("voornaam", {required: true, max: 25})}/>*/}
             {/*    {errors.voornaam && errors.voornaam.type === "required" && <span className="errorMessage">Dit veld is verplicht</span>}*/}
