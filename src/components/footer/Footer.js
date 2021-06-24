@@ -22,6 +22,10 @@ function Footer(){
                        </li>
 
                        <li>
+                           <Link to="/profile" activeClassName="active-link">Mijn Account</Link>
+                       </li>
+
+                       <li>
                            <Link to="/login" activeClassName="active-link">Login</Link>
                        </li>
 

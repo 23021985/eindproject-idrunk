@@ -1,7 +1,7 @@
 import React from 'react';
 import DrinksList from "./DrinksList";
 import {set, useForm} from "react-hook-form";
-import {DrinkContext, DrinkProvider} from "./DrinksContext";
+import {DrinkContext, DrinkProvider} from "../../context/DrinksContext";
 import {useContext} from "react/cjs/react.production.min";
 
 //

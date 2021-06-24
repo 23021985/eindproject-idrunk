@@ -1,10 +1,31 @@
-import React, {useState, createContext} from "react"
+import React, {useState, createContext, useContext} from "react"
 
 
 export const DrinkContext = createContext({});
 
 
-export const DrinkProvider = (props) =>{
+
+
+    export const DrinkProvider = (props) =>{
+
+        // let { drink, setDrink, amount, setAmount } = useState(0);
+        // const counter = amount;
+
+
+    const [amount, setAmount] = useState(0);
+
+        function addDrink(amount) {
+            // setDrink(drink.amount + drink.amount[1]);
+            // console.log(drink.amount)
+            return(amount = amount +1);
+        }
+
+        function deleteDrink(){
+            setDrink(drink.amount -1);
+            // return({drink.amount = setDrink -1})
+        }
+
+
     const [drink, setDrink] = useState([
 
         {
@@ -104,6 +125,11 @@ export const DrinkProvider = (props) =>{
                value={{
                    drink: drink,
                    setDrink: setDrink,
+                   amount: amount,
+                   setAmount: setAmount,
+                   addDrink: addDrink,
+                   deleteDrink: deleteDrink,
+
                }}>
 
                 {props.children}

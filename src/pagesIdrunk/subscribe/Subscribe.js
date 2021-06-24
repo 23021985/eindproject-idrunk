@@ -1,15 +1,60 @@
-import {NavLink, Link} from "react-router-dom";
-import React, { useRef } from "react";
+import {NavLink, Link, useHistory} from "react-router-dom";
+import React, { useRef, useState } from "react";
 import {set, useForm} from "react-hook-form";
 import Input from "../../components/input/Input";
 import "./Subscribe.css"
+import axios from "axios";
+import {useContext} from "react/cjs/react.production.min";
+import {AuthContext} from "../../context/AuthContext";
 
-function Subscribe(){
+
+
+    function Subscribe(){
+    const [loading, toggleLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [registerSuccess, toggleRegisterSuccess] = useState(false);
+    const history = useHistory();
     const {register, handleSubmit, formState:{errors}, watch} = useForm();
-    const onSubmit = data => console.log(data);
+
+
+        async function onSubmit(data) {
+            setError('');
+            toggleLoading(true);
+
+            console.log(data);
+
+            try {
+                const result = await axios.post('http://localhost:3000/register', {
+                    voornaam: data.voornaam,
+                    achternaam: data.achternaam,
+                    leeftijd: data.leeftijd,
+                    email: data.email,
+                    password: data.password,
+                    username: data.username
+
+                });
+                // als deze console.log wordt uitgevoerd is alles goedgegaan, want we zijn niet naar het catch blok gesprongen
+                // in de console zie je de gebruikelijke respons en daarin ook 'status: 201'
+                console.log(result);
+
+                toggleRegisterSuccess(true);
+
+                // we willen even wachten met doorlinken zodat de gebruiker de tijd heeft om de succesmelding ook daadwerkelijk te zien
+                setTimeout(() => {
+                    history.push('/login');
+                }, 2000);
+            } catch(e) {
+                console.error(e);
+                // op het error (e) object zit altijd een message property, maar die kan wat abstract zijn. Daarom extra text:
+                setError(`Het registeren is mislukt. Probeer het opnieuw (${e.message})`);
+
+            }
+            toggleLoading(false);
+        }
+
 
     return(
-<main>
+    <main>
         <form className="formInschrijven" onSubmit={handleSubmit(onSubmit)}>
             <h3>Inschrijven</h3>
 
@@ -42,7 +87,7 @@ function Subscribe(){
             />
 
             <Input
-                name="email-adres"
+                name="email"
                 labelId="emailId"
                 type="text"
                 placeholder="e-mail adres"
@@ -61,24 +106,26 @@ function Subscribe(){
                 required={true}
                 register={register}
                 errors={errors}
-                pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
+                // pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
+               pattern={errors.password && errors.password.type === "pattern" && <span className="errormessage-pattern">Het wachtwoord moet minimaal 1 Hoofdletter, 1 kleine letter en een cijfer bevatten</span>}
                 patternError="Wachtwoord voldoet niet aan de eisen"
             />
 
             <Input
                 name="passwordCheck"
                 labelId="passwordCheckId"
-                type="text"
+                type="password"
                 placeholder="Herhaal wachtwoord"
                 required={true}
                 register={register}
                 errors={errors}
-                pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
+                pattern={errors.password && errors.password.type === "pattern" && <span className="errormessage-pattern">Het wachtwoord moet minimaal 1 Hoofdletter, 1 kleine letter en een cijfer bevatten</span>}
+                // pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
                 patternError="Wachtwoord voldoet niet aan de eisen"
             />
 
             <Input
-                name="age"
+                name="leeftijd"
                 labelId="ageCheck"
                 type="number"
                 placeholder="18"
@@ -89,69 +136,14 @@ function Subscribe(){
                 maxLengthError="de leeftijd mag niet meer dan 3 cijfers bevatten"
             />
 
-            {/*<Input*/}
-            {/*    name="straat"*/}
-            {/*    labelId="straatId"*/}
-            {/*    type="text"*/}
-            {/*    placeholder="uw straatnaam hier.."*/}
-            {/*    register={register}*/}
-            {/*    errors={errors}*/}
-            {/*    minLength={2}*/}
-            {/*    minLengthError="De straatnaam moet minimaal 3 leestekens bevatten"*/}
-            {/*/>*/}
+            <button type= "submit"  disabled={loading}>{loading ? 'Versturen...' : 'Maak account aan'}</button>
+            {registerSuccess === true &&  <p>Registeren is gelukt! Je wordt nu doorgestuurd naar de inlog pagina!</p>}
+            {error && <p className="error-message">{error}</p>}
 
-
-            {/*<label htmlFor="voornaam" id="firstNameId">Voornaam*/}
-            {/*    <input type="text" placeholder="Voornaam..." name="voornaam" id="voornaam" {...register("voornaam", {required: true, max: 25})}/>*/}
-            {/*    {errors.voornaam && errors.voornaam.type === "required" && <span className="errorMessage">Dit veld is verplicht</span>}*/}
-            {/*</label>*/}
-
-            {/*<label htmlFor="achternaam" id="achternaamId">Achternaam*/}
-            {/*    <input type="text" placeholder="Achternaam..." name="achternaam" id="achternaam" {...register("achternaam", {required: true, max: 25})}/>*/}
-            {/*    {errors.achternaam && errors.achternaam.type === "required" && <span className="errorMessage">Dit veld is verplicht</span>}*/}
-            {/*</label>*/}
-
-            {/*<label htmlFor="age" id="ageId">Leeftijd*/}
-            {/*    <input type="number" placeholder="Leeftijd..." name="age" id="age" {...register("age", {required: true, min: 18})}/>*/}
-            {/*    {errors.age && errors.age.type === "required" && <span className="errorMessage">Dit veld is verplicht</span>}*/}
-            {/*</label>*/}
-
-            {/*<label htmlFor="postcode">Postcode*/}
-            {/*    <input type="text" placeholder="1010AA" name="postcode" id="postcode" {...register("postcode", {required: true, max: 6})} />*/}
-            {/*    {errors.postcode && errors.postcode.type === "required" && <span className="errorMessage">Dit veld is verplicht</span>}*/}
-            {/*</label>*/}
-
-            {/*<label htmlFor="huisnummer">Huisnummer*/}
-            {/*    <input type="number"*/}
-            {/*           placeholder="123.."*/}
-            {/*           name="huisnummer"*/}
-            {/*           id="huisnummer"*/}
-            {/*           {...register("huisnummer", {required: true, min: 1})}/>*/}
-            {/*    {errors.huisnummer && errors.huisnummer.type === "required" && <span className="errorMessage">Dit veld is verplicht</span>}*/}
-            {/*</label>*/}
-
-            {/*<label htmlFor="password">Wachtwoord:*/}
-            {/*    <input*/}
-            {/*        id="password"*/}
-            {/*        type="password"*/}
-            {/*        name="password"*/}
-            {/*    />*/}
-            {/*</label>*/}
-
-            {/*<label htmlFor="repeat password">*/}
-            {/*    Wachtwoord:*/}
-            {/*    <input*/}
-            {/*        id="repeat password"*/}
-            {/*        type="password"*/}
-            {/*        name="password"*/}
-            {/*    />*/}
-            {/*</label>*/}
-
-                <button type= "submit">Aanmelden</button>
-
-                <Link to="/Login" activeClassName="active-link">Inloggen</Link>
+            <p>Heb je al een account? Je kunt je <Link to="/Login" activeClassName="active-link">hier</Link> inloggen.</p>
         </form>
-</main>
+
+    </main>
 )
 }
 

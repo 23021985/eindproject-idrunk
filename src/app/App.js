@@ -26,17 +26,23 @@ import Socials from "../pagesIdrunk/socials/Socials";
 import ContactPaginaIdrunk from "../pagesIdrunk/contactPageIdrunk/ContactPaginaIdrunk";
 import StorkReserveren from "../pagesStork/storkReserveren/StorkReserveren";
 import Order from "../pagesStork/order/Order";
-import {DrinkProvider} from "../components/menu/DrinksContext"
+import Profile from "../pagesStork/ProfielPagina/Profile";
+import {DrinkProvider} from "../context/DrinksContext"
 
 function App() {
   return (
-<DrinkProvider>
-      <Router>
+
+      <>
           <Header/>
                 <div className={"container1"}>
                     <Aside/>
 
                             <Switch>
+                                <Route path="/profile">
+                                    <Profile/>
+                                </Route>
+
+
                                 <Route path="/stork/order">
                                     <Order/>
                                 </Route>
@@ -85,8 +91,8 @@ function App() {
 
                 </div>
             <Footer/>
-      </Router>
-// </DrinkProvider>
+      </>
+
   );
 }
 export default App;

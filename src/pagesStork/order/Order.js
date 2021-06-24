@@ -1,5 +1,8 @@
 import React, {useContext} from 'react';
-import {DrinkContext} from "../../components/menu/DrinksContext";
+import {DrinkContext} from "../../context/DrinksContext";
+import "./Order.css";
+
+
 
 // const Drinks = () => {
 //     const [drink, setDrink] = useContext(DrinkContext)
@@ -8,44 +11,43 @@ const Order = () => {
 //     console.log(Alles);
 
     // const alles = useContext(DrinkContext); // in alles zitten de properties drink en setDrink
-// Dit kun je destructuren
+// Dit kun je destructureren
 
     // function menu()
 
-    const { drink, setDrink } = useContext(DrinkContext);
+    // let { amount, setAmount } = useContext(DrinkContext);
+
+    let { drink, setDrink, amount, setAmount, addDrink, deleteDrink } = useContext(DrinkContext);
+
+    // const counter = amount;
+    //VERPLAATST NAAR DE CONSTEXT
+
+    // function addDrink(){
+    //     setDrink(drink.amount + amount[1]);
+    //     console.log(drink.amount)
+    //     // return(drink = (setDrink.amount +1));
+    // }
+    //
+    // function deleteDrink(){
+    //     // setDrink[drink.amount-1];
+    //     // return({drink.amount = setDrink -1})
+    // }
+
     return (
-        <div className="drankenkaart">
-            {drink.map(function (name, price){
-                return name, price
-                console.log(name);
-                console.log(price)
-            }) }
+        <div className="drankContainer">
+            <div className="menu">
 
-            {/*{drink.map(() => {*/}
-            {/*    return {drink}*/}
-            {/*})}*/}
+                      {drink.map((drink)=>(
+                        <h2> {drink.name} {drink.price}
+                            <p>aantal:</p>
+                            <button onClick={(e)=>deleteDrink}>-</button>
+                            {drink.amount}
+                            <button onClick={(event)=>addDrink(amount)}>+</button>
+                        </h2>
 
-            {/*{drink.map(() => {*/}
-            {/*    return{drink.name}*/}
-            {/*})}*/}
+                    ))}
 
-
-            {/*<h2>de drankenkaart bestaat uit {{drink}}</h2>*/}
-            {/*<h2>de drankenkaart bestaat uit {drink}</h2>*/}
-            {/*<h2>de drankenkaart bestaat uit {drink.length}</h2>  /!*geeft 15*!/*/}
-            {/*/\<h2>de drankenkaart bestaat uit {drink.children}</h2>*/}
-            <h2>de drankenkaart bestaat uit {drink[0].name} en deze kost € {drink[0].price}</h2>
-            {/*<h2>de drankenkaart bestaat uit {drink[1]}</h2>  MAG NIET!*/}
-            {/*<h2>de drankenkaart bestaat uit {drink.key.name}</h2> MAG NIET*/}
-
-
-            <h1>hier komt de bestelpagina</h1>
-            <br/>
-            <h2>hier komt dan een barkaart</h2>
-            <br/>
-            <h3>hier houden we de rekening bij</h3>
-            <br/>
-
+            </div>
         </div>
     );
 }

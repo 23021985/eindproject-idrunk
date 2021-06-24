@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Drinks from "./Drinks";
-import {DrinkContext} from "./DrinksContext";
+import {DrinkContext} from "../../context/DrinksContext";
 import {useContext} from "react/cjs/react.production.min";
 
 const DrinksList = () => {
