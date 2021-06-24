@@ -1,0 +1,28 @@
+aside {
+    background-color: black;
+    width: 20%;
+    height: 100%;
+    max-height: calc(100vh - 200px);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow: scroll;
+    color: white;
+    /*position: relative;*/
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+aside::-webkit-scrollbar{
+    background-color: white;
+}
+
+aside::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+aside::-webkit-scrollbar-thumb {
+    border-right: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}

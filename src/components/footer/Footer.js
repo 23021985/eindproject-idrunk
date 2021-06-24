@@ -14,21 +14,24 @@ function Footer(){
                        <div id="logo3"></div>
                    </label>
 
-                   <div className={"buttons"}>
-                   <ul>
+               <div className={"buttons"}>
+                   <ul className="logo">
 
                        <li>
-                           <Link to="/Locaties" activeClassName="active-link">Locaties</Link>
+                           <Link to="/locaties" activeClassName="active-link">Locaties</Link>
                        </li>
 
                        <li>
-                           <Link to="/Login" activeClassName="active-link">Login</Link>
+                           <Link to="/profile" activeClassName="active-link">Mijn Account</Link>
                        </li>
 
                        <li>
-                           <Link to="/Contact" activeClassName="active-link">Contact</Link>
+                           <Link to="/login" activeClassName="active-link">Login</Link>
                        </li>
 
+                       <li>
+                           <Link to="/contact" activeClassName="active-link">Contact</Link>
+                       </li>
 
                    </ul>
                </div>

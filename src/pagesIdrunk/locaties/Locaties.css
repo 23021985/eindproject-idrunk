@@ -1,0 +1,31 @@
+.locatieLabel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    width: 400px;
+    height: 400px;
+    color: white;
+    margin-top: 142px;
+    padding: 31px;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px gray;
+    background-image: url("/src/assets/cocktail.jpeg");
+    text-align: center;
+}
+
+.linksToBars{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.locatieContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}

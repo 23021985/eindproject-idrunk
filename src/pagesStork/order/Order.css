@@ -1,0 +1,30 @@
+p{
+    color: white;
+}
+
+.drankContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: transparent;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    width: 400px;
+    height: auto;
+    color: white;
+    margin-top: 142px;
+    padding: 31px;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px gray;
+    background-image: url("/src/assets/cocktail.jpeg");
+    text-align: center;
+}
