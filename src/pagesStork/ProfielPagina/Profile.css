@@ -1,0 +1,32 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    width: 100%;
+    color: white;
+    padding: 30px;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px gray;
+    background-image: url("/src/assets/cocktail.jpeg");
+    text-align: center;
+}
+
+.achtergrond{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background-color: transparent;
+    margin-left: 300px;
+}
+
+button{
+    border-radius: 50px;
+    border-style: solid;
+    background-color: white;
+    box-shadow: 1px 1px 1px gray;
+}

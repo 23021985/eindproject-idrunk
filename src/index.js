@@ -13,9 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
       <Router>
       <AuthContextProvider>
-        <DrinkProvider>
+        {/*<DrinkProvider>*/}
             <App />
-        </DrinkProvider>
+        {/*</DrinkProvider>*/}
       </AuthContextProvider>
       </Router>
   </React.StrictMode>,

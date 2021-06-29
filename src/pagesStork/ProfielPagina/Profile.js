@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {AuthContext} from "../../context/AuthContext";
+import "./Profile.css"
 
 // STAPPENPLAN GEBRUIKERSDATA UIT CONTEXT HALEN (7)
 // - [x] Importeeer de useContext functie en AuthContext
@@ -54,25 +55,28 @@ function Profile() {
     }, []);
 
     return (
-        <>
-            <h1>Profielpagina</h1>
-            <section>
-                <h2>Gegevens</h2>
-                {user &&
-                <>
-                    <p><strong>Gebruikersnaam:</strong> {user.username}</p>
-                    <p><strong>Email:</strong> {user.email}</p>
-                </>
+        <><div className="achtergrond">
+            <div className="content">
+                <h1>Profielpagina</h1>
+                    <section>
+                        <h2>Gegevens</h2>
+                        {user &&
+                        <>
+                            <p><strong>Gebruikersnaam:</strong> {user.username}</p>
+                            <p><strong>Email:</strong> {user.email}</p>
+                        </>
+                        }
+                    </section>
+                {privateContent &&
+                    <section>
+                        <h2>Afgeschermde content voor ingelogde gebruikers</h2>
+                        <h4>{privateContent.title}</h4>
+                        <p>{privateContent.content}</p>
+                    </section>
                 }
-            </section>
-            {privateContent &&
-            <section>
-                <h2>Afgeschermde content voor ingelogde gebruikers</h2>
-                <h4>{privateContent.title}</h4>
-                <p>{privateContent.content}</p>
-            </section>
-            }
-            <p>Terug naar de <Link to="/">Homepagina</Link></p>
+                <p>Terug naar de <Link to="/">Homepagina</Link></p>
+            </div>
+        </div>
         </>
     );
 }
