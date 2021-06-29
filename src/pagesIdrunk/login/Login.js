@@ -69,9 +69,6 @@ function Login() {
         </form>
     </main>
 
-
     );
 }
-
-
 export default Login;

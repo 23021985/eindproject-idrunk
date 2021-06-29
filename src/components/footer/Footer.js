@@ -1,9 +1,15 @@
 import React from "react";
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useHistory} from "react-router-dom";
 import "./Footer.css"
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext";
+
 function Footer(){
-
-
+    // const history = useHistory();
+    // const {
+    //     logout,
+    //     authState: { user },
+    // } = useContext(AuthContext);
     return(
 
            <footer>
@@ -25,8 +31,15 @@ function Footer(){
                            <Link to="/profile" activeClassName="active-link">Mijn Account</Link>
                        </li>
 
+                       {/*<li>*/}
+                       {/*    <button type="button" onClick={() => history.push("/homePage")}>Log uit</button>*/}
+                       {/*</li>*/}
+
+                       {/*<li>*/}
+                       {/*    <button type="button" onClick={() => history.push("/Login")}>Log in</button>*/}
+                       {/*</li>*/}
                        <li>
-                           <Link to="/login" activeClassName="active-link">Login</Link>
+                       <Link to="/login" activeClassName="active-link">Login</Link>
                        </li>
 
                        <li>
@@ -35,6 +48,22 @@ function Footer(){
 
                    </ul>
                </div>
+
+
+               {/*{!user ? (*/}
+               {/*    <>*/}
+               {/*        <button type="button" onClick={() => history.push("/signin")}>*/}
+               {/*            Log in*/}
+               {/*        </button>*/}
+               {/*        <button type="button" onClick={() => history.push("/signup")}>*/}
+               {/*            Registreren*/}
+               {/*        </button>*/}
+               {/*    </>*/}
+               {/*) : (*/}
+               {/*    <button type="button" onClick={logout}>*/}
+               {/*        Log uit*/}
+               {/*    </button>*/}
+               {/*)}*/}
 
            </footer>
 

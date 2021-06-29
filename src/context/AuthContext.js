@@ -59,6 +59,7 @@ function AuthContextProvider({ children }) {
     //    - [x] De data die we terugkrijgen zetten we in de state, en daarmee ook in de context (user: al die data en status: 'done')
     //    - [x] Link gebruiker door naar de profielpagina
 
+    // NOVA LOGIN
     function login(jwtToken) {
         console.log(jwtToken)
         localStorage.setItem('token', jwtToken);
@@ -110,11 +111,22 @@ function AuthContextProvider({ children }) {
         logout: logout,
     };
 
+
+
+
+
+
+
+
+
+
+    //NOVA RETURN
     return (
         <AuthContext.Provider value={data}>
             {authState.status === 'pending'
                 ? <p>Loading...</p>
                 : children
+
             }
         </AuthContext.Provider>
     );
