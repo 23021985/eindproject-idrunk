@@ -1,38 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useContext}  from 'react';
 import {DrinkContext} from "../../context/DrinksContext";
 import "./Order.css";
-
+import Input from "../../components/input/Input";
+import {useForm} from "react-hook-form";
 
 
 // const Drinks = () => {
 //     const [drink, setDrink] = useContext(DrinkContext)
 const Order = () => {
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log('You clicked submit.');
-    }
 
-    const [counterCaipirinha, setCounterCaipirinha] =useState(0);
-    const [counterMoscowMule, setCounterMoscowMule] = useState(0);
-    const [counterBloodyMary, setCounterBloodyMary] = useState(0);
-    const [counterCosmopolitan, setCounterCosmopolitan] = useState(0);
-    const [counterMojito, setCounterMojito] = useState(0);
-    const [counterDryMartini, setCounterDryMartini] = useState(0);
-    const [counterSour, setCounterSour] = useState(0);
-    const [counterNegroni, setCounterNegroni] = useState(0);
-    const [counterEspressoMartini, setCounterEspressoMartini] = useState(0);
-    const [counterTanqueray, setCounterTanqueray] = useState(0);
-    const [counterHendrick, setCounterHendrick] = useState(0);
-    const [counterV2C, setCounterV2C] = useState(0);
-    const [counterZeezuiper, setCounterZeezuiper] = useState(0);
-    const [counterWarsteiner, setCounterWarsteiner] = useState(0);
-
+    const {register, handleSubmit} = useForm()
+    const {order, setOrder} = useContext(DrinkContext);
     const drink = [
 
         {
             name: "Caipiriniha",
             price: "€ 13,50",
             id: 1,
+            amount: 0,
 
         },
         {
@@ -121,115 +106,106 @@ const Order = () => {
         },
     ]
 
+    function onSubmit(data) {
+        console.log(data)
+
+        // setOrder([
+        //     ...order,
+        //     data,
+        // ]);
+    }
+
+    // function onFormSubmit(data) {
+    //     console.log("je besteld dit" + data)
+    // }
+
     return (
+
         <div className="drankContainer">
-            <form onSubmit={handleSubmit} className="menu">
+            <form onSubmit={handleSubmit(onSubmit)} className="menu">
 
                 <div className="drankjes">
 
                     <div className="caipirinha">
+                        <h2>Caipirinha</h2>
                         <h2>{drink[0].name}, {drink[0].price}</h2>
-                        <button disabled={counterCaipirinha === 0} onClick={() => setCounterCaipirinha(counterCaipirinha - 1)}>-</button>
-                        {counterCaipirinha}
-                        <button onClick={() => setCounterCaipirinha(counterCaipirinha + 1)}>+</button>
+                        <input min="0" type="number" id="Caipirinha" {...register("Caipirinha")}/>
                     </div>
 
                     <div className="Moscow Mule">
                         <h2>{drink[1].name}, {drink[1].price}</h2>
-                        <button disabled={counterMoscowMule === 0} onClick={() => setCounterMoscowMule(counterMoscowMule - 1)}>-</button>
-                        {counterMoscowMule}
-                        <button onClick={() => setCounterMoscowMule(counterMoscowMule + 1)}>+</button>
+                        <input min="0" type="number" id="Moscow Mule" {...register("Moscow Mule")}/>
                     </div>
 
                     <div className="BloodyMary">
                         <h2>{drink[2].name}, {drink[2].price}</h2>
-                        <button disabled={counterBloodyMary === 0} onClick={() => setCounterBloodyMary(counterBloodyMary - 1)}>-</button>
-                        {counterBloodyMary}
-                        <button onClick={() => setCounterBloodyMary(counterBloodyMary + 1)}>+</button>
+                        <input min="0" type="number" id="BloodyMary" {...register("BloodyMary")}/>
                     </div>
 
                     <div className="Cosmopolitan">
                         <h2>{drink[3].name}, {drink[3].price}</h2>
-                        <button disabled={counterCosmopolitan === 0} onClick={() => setCounterCosmopolitan(counterCosmopolitan - 1)}>-</button>
-                        {counterCosmopolitan}
-                        <button onClick={() => setCounterCosmopolitan(counterCosmopolitan + 1)}>+</button>
+                        <input min="0" type="number" id="Cosmopolitan" {...register("Cosmopolitan")}/>
                     </div>
 
                     <div className="Mojito">
                         <h2>{drink[4].name}, {drink[4].price}</h2>
-                        <button disabled={counterMojito === 0} onClick={() => setCounterMojito(counterMojito - 1)}>-</button>
-                        {counterMojito}
-                        <button onClick={() => setCounterMojito(counterMojito + 1)}>+</button>
+                        <input min="0" type="number" id="Mojito" {...register("Mojito")}/>
                     </div>
 
                     <div className="Dry Martini">
                         <h2>{drink[5].name}, {drink[5].price}</h2>
-                        <button disabled={counterDryMartini === 0} onClick={() => setCounterDryMartini(counterDryMartini - 1)}>-</button>
-                        {counterDryMartini}
-                        <button onClick={() => setCounterDryMartini(counterDryMartini + 1)}>+</button>
+                        <input min="0" type="number" id="Dry Martini" {...register("Dry Martini")}/>
                     </div>
 
                     <div className="Sour">
                         <h2>{drink[6].name}, {drink[6].price}</h2>
-                        <button disabled={counterSour === 0} onClick={() => setCounterSour(counterSour - 1)}>-</button>
-                        {counterSour}
-                        <button onClick={() => setCounterSour(counterSour + 1)}>+</button>
+                        <input min="0" type="number" id="Sour" {...register("Sour")}/>
                     </div>
 
                     <div className="Negroni">
                         <h2>{drink[7].name}, {drink[7].price}</h2>
-                        <button disabled={counterNegroni === 0} onClick={() => setCounterNegroni(counterNegroni - 1)}>-</button>
-                        {counterNegroni}
-                        <button onClick={() => setCounterNegroni(counterNegroni + 1)}>+</button>
+                        <input min="0" type="number" id="Negroni" {...register("Negroni")}/>
                     </div>
 
                     <div className="EspressoMartini">
                         <h2>{drink[8].name}, {drink[8].price}</h2>
-                        <button disabled={counterEspressoMartini === 0} onClick={() => setCounterEspressoMartini(counterEspressoMartini - 1)}>-</button>
-                        {counterEspressoMartini}
-                        <button onClick={() => setCounterEspressoMartini(counterEspressoMartini + 1)}>+</button>
+                        <input min="0" type="number" id="EspressoMartini" {...register("EspressoMartini")}/>
                     </div>
 
                     <div className="Tanqueray">
                         <h2>{drink[9].name}, {drink[9].price}</h2>
-                        <button disabled={counterTanqueray === 0} onClick={() => setCounterTanqueray(counterTanqueray - 1)}>-</button>
-                        {counterTanqueray}
-                        <button onClick={() => setCounterTanqueray(counterTanqueray + 1)}>+</button>
+                        <input min="0" type="number" id="Tanqueray" {...register("Tanqueray")}/>
                     </div>
 
                     <div className="Hendrick">
                         <h2>{drink[10].name}, {drink[10].price}</h2>
-                        <button disabled={counterHendrick === 0} onClick={() => setCounterHendrick(counterHendrick - 1)}>-</button>
-                        {counterHendrick}
-                        <button onClick={() => setCounterHendrick(counterHendrick + 1)}>+</button>
+                        <input min="0" type="number" id="Hendrick" {...register("Hendrick")}/>
                     </div>
 
                     <div className="V2C">
                         <h2>{drink[11].name}, {drink[11].price}</h2>
-                        <button disabled={counterV2C === 0} onClick={() => setCounterV2C(counterV2C - 1)}>-</button>
-                        {counterV2C}
-                        <button onClick={() => setCounterV2C(counterV2C + 1)}>+</button>
+                        <input min="0" type="number" id="V2C" {...register("V2C")}/>
                     </div>
 
                     <div className="Zeezuiper">
                         <h2>{drink[12].name}, {drink[12].price}</h2>
-                        <button disabled={counterZeezuiper === 0} onClick={() => setCounterZeezuiper(counterZeezuiper - 1)}>-</button>
-                        {counterZeezuiper}
-                        <button onClick={() => setCounterZeezuiper(counterZeezuiper + 1)}>+</button>
+                        <input min="0" type="number" id="Zeezuiper" {...register("Zeezuiper")}/>
                     </div>
 
-                    <div className="drankje">
-                        <h2>{drink[13].name}, {drink[13].price}</h2>
-                        <button disabled={counterWarsteiner === 0} onClick={() => setCounterWarsteiner(counterWarsteiner - 1)}>-</button>
-                        {counterWarsteiner}
-                        <button onClick={() => setCounterWarsteiner(counterWarsteiner + 1)}>+</button>
+                    <div className="Warsteiner">
+                    <h2>{drink[13].name}, {drink[13].price}</h2>
+                        <input min="0"  type="number" id="Warsteiner" {...register("Warsteiner")}/>
                     </div>
+
+                    <button type="submit">Plaats uw bestelling</button>
                 </div>
 
             </form>
         </div>
 
+
     );
+
 }
 
 export default Order;

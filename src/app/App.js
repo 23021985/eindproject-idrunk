@@ -29,6 +29,7 @@ import Order from "../pagesStork/order/Order";
 import Profile from "../pagesStork/ProfielPagina/Profile";
 import {DrinkProvider} from "../context/DrinksContext"
 
+
 function App() {
   return (
 
