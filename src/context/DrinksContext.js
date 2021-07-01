@@ -1,3 +1,43 @@
+
+
+
+
+import React, { useState, createContext } from "react";
+export const DrinkContext = createContext({});
+export const DrinkProvider = props => {
+    const [order, setOrder] = useState([])
+
+    return (
+        <DrinkContext.Provider value={{setOrder:setOrder, order:order }}>
+            {props.children}
+        </DrinkContext.Provider>
+    );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React, {useState, createContext, useContext} from "react"
 //
 //
