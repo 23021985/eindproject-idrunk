@@ -3,7 +3,6 @@ import {NavLink, Link} from "react-router-dom";
 import "./Login.css"
 import {useForm} from "react-hook-form";
 import axios from "axios";
-import input from "../../components/input/Input";
 import {AuthContext} from "../../context/AuthContext";
 import {useContext} from "react"
 import Input from "../../components/input/Input";
@@ -18,9 +17,9 @@ function Login() {
         // console.log(data);
         // console.log(alles);
         try {
-            const result = await axios.post('http://localhost:3000/login', data);
+            const result = await axios.post('http://localhost:8083/authenticate', data);
             console.log(result);
-            login(result.data.accessToken);
+            login(result.data.jwt);
         } catch(e) {
             console.error(e, "he jammer hij is kapot");
         }
@@ -34,16 +33,18 @@ function Login() {
 
                     <label htmlFor="username" className="loginLabel">
                         Gebruikersnaam:
+
+
                         <Input
-                            name="email"
-                            labelId="emailId"
+                            name="username"
+                            labelId="usernameId"
                             type="text"
-                            placeholder="e-mail adres"
+                            placeholder="Username.."
                             required={true}
                             register={register}
                             errors={errors}
-                            pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
-                            patternError="Please enter a valid e-mail adress"
+                            // pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
+                            // patternError="Please enter a valid e-mail adress"
                         />
                     </label>
 

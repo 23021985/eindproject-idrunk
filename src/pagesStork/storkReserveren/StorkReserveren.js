@@ -15,6 +15,8 @@ const StorkReserveren = () => {
         const onSubmit = data => console.log(data);
         const [time, setTime] = useState();
 
+    // hier komt een axios request naar de backend die beschikbare tijdsloten ophaalt uit de api
+//     // waarschijnlijk .map functie door de array itereren
     const options=[
         { value: '1200 - 1300', label: '⌚12:00 - ⌚13:00' },
         { value: '1230 - 1330', label: '⌚12:30 - ⌚13:30' },
@@ -34,6 +36,10 @@ const StorkReserveren = () => {
         { value: '2030 - 2130', label: '⌚20:30 - ⌚21:30' },
         { value: '2100 - 2200', label: '⌚21:00 - ⌚22:00' },
     ]
+
+
+    //hier komt uit de backend de beschikbare tafels
+
 
     function onChangeInput(value){
         console.log(value.value)
@@ -66,6 +72,8 @@ const StorkReserveren = () => {
                                 onChange={onChangeInput}/>
                         </div>
                     </div>
+
+
                     <button type="submit">Bier</button>
                 </form>
             </>);

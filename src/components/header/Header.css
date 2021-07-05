@@ -7,18 +7,40 @@ header {
     width: 100%;
 }
 
-/*IDRUNK logo*/
-h1{
+buttonBox{
     display: flex;
+    justify-content: space-evenly;
     flex-direction: row;
+    width: 100%;
     align-items: center;
 }
+
+/*H1{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    align-items: center;*/
+/*    justify-content: start;*/
+/*    color: navajowhite;*/
+/*}*/
 
 .logo {
     display: flex;
     justify-content: center;
     flex-direction: row;
     font-size: xx-large;
-    color: red;
+    color: navajowhite;
     z-index: 1;
+}
+
+#leButton{
+    width: 150px;
+    margin-top: 50px;
+    color: dodgerblue;
+    background-color: black;
+    height: 30px;
+}
+
+.hamburger1{
+    display: flex;
+    justify-content: end;
 }

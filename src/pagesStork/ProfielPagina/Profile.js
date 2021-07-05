@@ -37,7 +37,7 @@ function Profile() {
 
         async function getPrivateContent() {
             try {
-                const result = await axios.get('http://localhost:3000/660/private-content', {
+                const result = await axios.get('http://localhost:8083/660/private-content', {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,

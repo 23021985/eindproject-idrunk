@@ -72,7 +72,7 @@ function AuthContextProvider({ children }) {
 
     async function fetchUserData(token, id) {
         try {
-            const result = await axios.get(`http://localhost:3000/600/users/${id}`, {
+            const result = await axios.get(`http://localhost:8083/users/${id}`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
@@ -110,13 +110,6 @@ function AuthContextProvider({ children }) {
         login: login,
         logout: logout,
     };
-
-
-
-
-
-
-
 
 
 
