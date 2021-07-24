@@ -69,20 +69,14 @@ import React, { useState, createContext } from "react";
                 amount: 0,
             },
             {
-                name: "Hendrick's Gin - Fevertree indian Tonic",
-                price: "€ 13,50",
-                id: 11,
-                amount: 0,
-            },
-            {
                 name: "V2C Duch dry gin - Fevertree mediterranian Tonic",
-                price: "€ 13,50",
+                price: "€ 10,50",
                 id: 12,
                 amount: 0,
             },
             {
                 name: "Hendrick's Gin - Fevertree indian Tonic",
-                price: "€ 13,50",
+                price: "€ 12,50",
                 id: 13,
                 amount: 0,
             },

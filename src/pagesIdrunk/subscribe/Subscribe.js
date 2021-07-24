@@ -19,17 +19,22 @@ import axios from "axios";
             console.log(data);
 
             try {
-                const result = await axios.post('http://localhost:8083/users', {
+                const result = await axios.post('http://localhost:8084/users', {
                     username: data.username,
                     firstName: data.voornaam,
                     lastName: data.achternaam,
                     age: data.leeftijd,
                     email: data.email,
                     password: data.password,
-                    // token: data.accessToken
-                    // name : data.username
+
+                    token: data.accessToken
 
                 });
+
+                const postRole = await axios.post(`http://localhost:8084/users/${data.username}/authorities`, {
+                    username: data.username,
+                    authority: "USER"
+                })
                 // als deze console.log wordt uitgevoerd is alles goedgegaan, want we zijn niet naar het catch blok gesprongen
                 // in de console zie je de gebruikelijke respons en daarin ook 'status: 201'
                 console.log(result);

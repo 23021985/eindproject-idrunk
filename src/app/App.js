@@ -27,6 +27,7 @@ import StorkReserveren from "../pagesStork/storkReserveren/StorkReserveren";
 import Order from "../pagesStork/order/Order";
 import Profile from "../pagesStork/ProfielPagina/Profile";
 import Input from "../components/input/Input";
+import AdminPage from "../pagesStork/ProfielPagina/AdminPage";
 
 function App() {
   return (
@@ -42,9 +43,14 @@ function App() {
                                 </Route>
 
 
+                                <Route path="/adminpage">
+                                    <AdminPage/>
+                                </Route>
+
                                 <Route path="/stork/order">
                                     <Order/>
                                 </Route>
+
 
                                 <Route path="/stork/reserveren">
                                     <StorkReserveren/>

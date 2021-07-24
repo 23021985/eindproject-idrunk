@@ -8,7 +8,7 @@ import {AuthContext} from "../../context/AuthContext";
 function Header(){
     const history = useHistory();
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     return(
       <header>
@@ -41,6 +41,8 @@ function Header(){
               <button type="button" id="leButton" onClick={() => history.push("/Login")}>Log in</button>
           </li>
 </ul>
+
+
           <Hamburger/>
       </header>
     );

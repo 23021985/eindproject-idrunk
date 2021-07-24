@@ -31,6 +31,10 @@ function Footer(){
                            <Link to="/profile" activeClassName="active-link">Mijn Account</Link>
                        </li>
 
+
+                        {/*<li>*/}
+                        {/*    <p>Upload <link to="/adminpage">hier</link>de (nieuwe) menukaart</p>*/}
+                        {/*</li>*/}
                        {/*<li>*/}
                        {/*    <button type="button" onClick={() => history.push("/homePage")}>Log uit</button>*/}
                        {/*</li>*/}
@@ -50,20 +54,7 @@ function Footer(){
                </div>
 
 
-               {/*{!user ? (*/}
-               {/*    <>*/}
-               {/*        <button type="button" onClick={() => history.push("/signin")}>*/}
-               {/*            Log in*/}
-               {/*        </button>*/}
-               {/*        <button type="button" onClick={() => history.push("/signup")}>*/}
-               {/*            Registreren*/}
-               {/*        </button>*/}
-               {/*    </>*/}
-               {/*) : (*/}
-               {/*    <button type="button" onClick={logout}>*/}
-               {/*        Log uit*/}
-               {/*    </button>*/}
-               {/*)}*/}
+
 
            </footer>
 
