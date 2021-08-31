@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {BookingContext} from "../../context/BookingContext";
-import './checkBooking.css';
+import './CheckBooking.css';
 import moment from "moment";
 import { useHistory } from 'react-router-dom';
 

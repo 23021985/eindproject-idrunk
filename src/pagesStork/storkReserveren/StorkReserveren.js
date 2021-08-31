@@ -12,6 +12,7 @@ import {BookingContext} from "../../context/BookingContext";
 import {AuthContext} from "../../context/AuthContext";
 import * as field from "react-timeslot-calendar";
 
+
 const StorkReserveren = () => {
 
     const [loading, toggleLoading] = useState(false);
@@ -30,46 +31,46 @@ const StorkReserveren = () => {
 
 
     const optionalStartTime = [
-        { value: '12:00:00', label: '⌚12:00:00' },
-        { value: '12:30:00', label: '⌚12:30:00' },
-        { value: '13:00:00', label: '⌚13:00:00' },
-        { value: '13:30:00', label: '⌚13:30:00' },
-        { value: '14:00:00', label: '⌚14:00:00' },
-        { value: '14:30:00', label: '⌚14:30:00' },
-        { value: '15:00:00', label: '⌚15:00:00' },
-        { value: '15:30:00', label: '⌚15:30:00' },
-        { value: '16:00:00', label: '⌚16:00:00' },
-        { value: '16:30:00', label: '⌚16:30:00' },
-        { value: '17:00:00', label: '⌚17:00:00' },
-        { value: '17:30:00', label: '⌚17:30:00' },
-        { value: '18:00:00', label: '⌚18:00:00' },
-        { value: '18:30:00', label: '⌚18:30:00' },
-        { value: '19:00:00', label: '⌚19:00:00' },
-        { value: '19:30:00', label: '⌚19:30:00' },
-        { value: '20:00:00', label: '⌚20:00:00' },
-        { value: '20:30:00', label: '⌚20:30:00' },
+        { value: '12:00:00', label: '⌚12:00' },
+        { value: '12:30:00', label: '⌚12:30' },
+        { value: '13:00:00', label: '⌚13:00' },
+        { value: '13:30:00', label: '⌚13:30' },
+        { value: '14:00:00', label: '⌚14:00' },
+        { value: '14:30:00', label: '⌚14:30' },
+        { value: '15:00:00', label: '⌚15:00' },
+        { value: '15:30:00', label: '⌚15:30' },
+        { value: '16:00:00', label: '⌚16:00' },
+        { value: '16:30:00', label: '⌚16:30' },
+        { value: '17:00:00', label: '⌚17:00' },
+        { value: '17:30:00', label: '⌚17:30' },
+        { value: '18:00:00', label: '⌚18:00' },
+        { value: '18:30:00', label: '⌚18:30' },
+        { value: '19:00:00', label: '⌚19:00' },
+        { value: '19:30:00', label: '⌚19:30' },
+        { value: '20:00:00', label: '⌚20:00' },
+        { value: '20:30:00', label: '⌚20:30' },
     ]
 
     const optionalEndTime = [
-        { value: '12:30:00', label: '⌚12:30:00' },
-        { value: '13:00:00', label: '⌚13:00:00' },
-        { value: '13:30:00', label: '⌚13:30:00' },
-        { value: '14:00:00', label: '⌚14:00:00' },
-        { value: '14:30:00', label: '⌚14:30:00' },
-        { value: '15:00:00', label: '⌚15:00:00' },
-        { value: '15:30:00', label: '⌚15:30:00' },
-        { value: '16:00:00', label: '⌚16:00:00' },
-        { value: '16:30:00', label: '⌚16:30:00' },
-        { value: '17:00:00', label: '⌚17:00:00' },
-        { value: '17:30:00', label: '⌚17:30:00' },
-        { value: '18:00:00', label: '⌚18:00:00' },
-        { value: '18:30:00', label: '⌚18:30:00' },
-        { value: '19:00:00', label: '⌚19:00:00' },
-        { value: '19:30:00', label: '⌚19:30:00' },
-        { value: '20:00:00', label: '⌚20:00:00' },
-        { value: '20:30:00', label: '⌚20:30:00' },
-        { value: '21:00:00', label: '⌚21:00:00' },
-        { value: '21:30:00', label: '⌚21:30:00' },
+        { value: '12:30:00', label: '⌚12:30' },
+        { value: '13:00:00', label: '⌚13:00' },
+        { value: '13:30:00', label: '⌚13:30' },
+        { value: '14:00:00', label: '⌚14:00' },
+        { value: '14:30:00', label: '⌚14:30' },
+        { value: '15:00:00', label: '⌚15:00' },
+        { value: '15:30:00', label: '⌚15:30' },
+        { value: '16:00:00', label: '⌚16:00' },
+        { value: '16:30:00', label: '⌚16:30' },
+        { value: '17:00:00', label: '⌚17:00' },
+        { value: '17:30:00', label: '⌚17:30' },
+        { value: '18:00:00', label: '⌚18:00' },
+        { value: '18:30:00', label: '⌚18:30' },
+        { value: '19:00:00', label: '⌚19:00' },
+        { value: '19:30:00', label: '⌚19:30' },
+        { value: '20:00:00', label: '⌚20:00' },
+        { value: '20:30:00', label: '⌚20:30' },
+        { value: '21:00:00', label: '⌚21:00' },
+        { value: '21:30:00', label: '⌚21:30' },
     ]
 
     const optionalSeats = [
@@ -83,23 +84,23 @@ const StorkReserveren = () => {
         {value: 8, label: 'Tafel 8, 6 personen,', isDisabled: false, id: 8},
     ]
 
-    function onChangeInputStartTime(value) {
-        setStartTime({optionalStartTime})
+    // function onChangeInputStartTime(value) {
+    //     setStartTime({optionalStartTime})
+    //
+    //     console.log(optionalStartTime.value)
+    // }
+    //
+    // function onChangeInputEndTime(value) {
+    //     setEndTime({optionalEndTime})
+    //
+    //     // console.log(value.value)
+    // }
 
-        console.log(value.value)
-    }
-
-    function onChangeInputEndTime(value) {
-        setEndTime({optionalEndTime})
-
-        console.log(value.value)
-    }
-
-    function onChangeInputTable(value) {
-        setAvailableSeats({optionalSeats})
-
-        console.log(value.value)
-    }
+    // function onChangeInputTable(value) {
+    //     setAvailableSeats({optionalSeats})
+    //
+    //     // console.log(value.value)
+    // }
 
 
     let [madeBookings, setMadeBookings] = useState([]);
@@ -138,20 +139,37 @@ const StorkReserveren = () => {
 
     function onSubmit(data) {
         console.log(data)
-        console.log(data.startTime.value)
+        // console.log(data.startTime.value)
 
         //voeg de boeking toe aan de array met boekingen
-        // setBooking([
-        //     ...booking,
-        //     data,
-        // ]);
-        // console.log(moment(booking[0].dateInput).format().slice([0], -[14])+booking[0].startTime.value);
-        // console.log(moment(booking[0].dateinput).format().slice([0], -[14])+booking[0].endTime.value);
+        setBooking([
+            ...booking,
+            data,
+        ]);
+        console.log(booking)
 
         setBookingAdded(true);
+
+
+    // async function onSubmit(data) {
+    //     console.log(data)
+    //     setBooking([
+    //         ...booking,
+    //         data,
+    //     ]);
+    //
+    //     setBookingAdded(true);
+    //     console.log(booking)
+        setTimeout(() => {
+            // finalizeBooking();
+        }, 2000);
     }
 
     async function finalizeBooking(data) {
+        console.log(moment(booking[0].dateinput).format().slice([0], -[14])+booking[0].starttime);
+        console.log(moment(booking[0].dateinput).format().slice([0], -[14])+booking[0].endtime);
+            console.log(booking[0])
+
         setError('');
         toggleLoading(true);
         try {
@@ -160,39 +178,54 @@ const StorkReserveren = () => {
                 // date: moment(booking[0].dateinput).toISOString(),
                 //
                 // date: (moment(booking[0].dateinput).format().slice([0], -[6])),
+                // startTime: booking[0].starttime,
                 // startTime: (moment(booking[0].dateInput).format().slice([0], -[14])+booking[0].startTime.value), //startTime is undefined
                 // endTime: (moment(booking[0].dateinput).format().slice([0], -[14])+booking[0].endTime.value),
                 // username: user.username,
                 // tafelId: booking[0].tafelId,
 
-                date: (moment(booking[0].dateinput).format().slice([0], -[6])),
-                startTime: booking[0].startTime.toIsoString(),
-                endTIme: booking[0].endTime.toIsoString(),
+                date: (moment(booking[0].dateinput).format().slice(0, -[6])),
+                startTime: (moment(booking[0].dateinput).format().slice([0], -[14])+booking[0].starttime),
+                endTime: (moment(booking[0].dateinput).format().slice([0], -[14])+booking[0].endtime),
                 tafelId: booking[0].tafelId,
                 username: user.username,
 
 
             });
-            console.log(data);
+            console.log(result);
             // // als deze console.log wordt uitgevoerd is alles goedgegaan, want we zijn niet naar het catch blok gesprongen
             // // in de console zie je de gebruikelijke respons en daarin ook 'status: 201'
             console.log(moment(booking[0].dateinput).toString());
+            // console.log(data)
 
-
+    //         setTimeout(() => {
+    //         }, 2000);
+    //     } catch (e) {
+    //         console.error(e);
+    //         setError(`De booking is mislukt. Probeer het opnieuw (${e.message})`);
+    //     }
+    //     toggleLoading(false);
+    //     console.log(booking)
+    //     console.log('dit moet naar de backend: ', booking);
+    //     console.log(moment(booking[0].dateinput).toISOString())
+    //
+    //     history.push('/checkbooking')
+    //     setCheckBooking(true);
+    // }
             setTimeout(() => {
-            }, 2000);
+                history.push('/CheckBooking')
+            }, 500);
         } catch (e) {
             console.error(e);
             setError(`De booking is mislukt. Probeer het opnieuw (${e.message})`);
         }
         toggleLoading(false);
-        console.log(booking)
-        console.log('dit moet naar de backend: ', booking);
-        console.log(moment(booking[0].dateinput).toISOString())
 
-        history.push('/checkbooking')
         setCheckBooking(true);
+
     }
+    console.log('dit moet naar de backend: ', booking);
+
 
     return (
         <>
@@ -228,48 +261,38 @@ const StorkReserveren = () => {
 
                                 <h3>Selecteer een begin en eindtijd</h3>
 
-                                <Controller
-                                    control={control}
-                                    name='startTime'
-                                    render={({field}) => (
-                                        <MyTimePicker
+                                {/*<Controller*/}
+                                {/*    control={control}*/}
+                                {/*    name='startTime'*/}
+                                {/*    render={({field}) => (*/}
+                                        <SelectComponent
                                             options={optionalStartTime}
-                                            onChange={(startTime) => field.onChange(startTime)}
-                                            onSelect={onChangeInputStartTime}
-                                            selected={field.value}
-                                            placeholder="kies uw starttijd"/>
-                                    )}
-                                />
+                                            placeholder="kies uw starttijd"
+                                            register={register("starttime")}
+                                        />
+                                {/*    )}*/}
+                                {/*/>*/}
 
-                                <Controller
-                                    control={control}
-                                    name='endTime'
-                                    render={({field}) => (
-                                        <MyTimePicker
+                                {/*<Controller*/}
+                                {/*    control={control}*/}
+                                {/*    name='endTime'*/}
+                                {/*    render={({field}) => (*/}
+                                        <SelectComponent
                                             options={optionalEndTime}
-                                            onChange={(endTime) => field.onChange(endTime)}
-                                            onSelect={onChangeInputEndTime}
-                                            selected={field.value}
-                                            placeholder="kies uw eindtijd"/>
+                                            placeholder="kies uw eindtijd"
+                                        register={register("endtime")}/>
                                     )}
-                                />
+                                {/*/>*/}
 
                             <h3>Selecteer uw tafel hier</h3>
-
-                            <Controller
-                                control={control}
-                                name="seatsInput"
-                                render={({field}) => (
                             <SelectComponent
                                 className="select-tafel-component"
                                 options={optionalSeats}
-                                onChange={(optionalSeats) => field.onChange(optionalSeats)}
-                                onSelect={onChangeInputTable}
+                                // onChange={(optionalSeats) => field.onChange(optionalSeats)}
+                                // onSelect={onChangeInputTable}
                                 placeholder="Kies hier uw tafel"
                                 selected={field.value}
                                 register={register("tafelId")}
-                            />
-                        )}
                             />
 
                             <button type="submit" disabled={availableSeats === 0}

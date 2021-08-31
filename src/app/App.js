@@ -28,6 +28,7 @@ import Order from "../pagesStork/order/Order";
 import Profile from "../pagesStork/ProfielPagina/Profile";
 import Input from "../components/input/Input";
 import AdminPage from "../pagesStork/ProfielPagina/AdminPage";
+import CheckBooking from "../pagesStork/storkReserveren/CheckBooking";
 
 function App() {
   return (
@@ -58,7 +59,7 @@ function App() {
 
 
                                 <Route path="/stork/checkbooking">
-                                    <StorkReserveren/>
+                                    <CheckBooking/>
                                 </Route>
 
                                 <Route path="/contact">
