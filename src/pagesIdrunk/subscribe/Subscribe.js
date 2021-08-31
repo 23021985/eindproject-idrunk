@@ -12,6 +12,7 @@ import axios from "axios";
     const history = useHistory();
     const {register, handleSubmit, formState:{errors}, watch} = useForm();
 
+
         async function onSubmit(data) {
             setError('');
             toggleLoading(true);
@@ -19,7 +20,7 @@ import axios from "axios";
             console.log(data);
 
             try {
-                const result = await axios.post('http://localhost:8084/users', {
+                const result = await axios.post('http://localhost:8084/users/register', {
                     username: data.username,
                     firstName: data.voornaam,
                     lastName: data.achternaam,
@@ -27,7 +28,7 @@ import axios from "axios";
                     email: data.email,
                     password: data.password,
 
-                    token: data.accessToken
+                    // token: data.accessToken
 
                 });
 

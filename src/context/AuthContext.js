@@ -72,13 +72,14 @@ function AuthContextProvider({ children }) {
         const decodedToken = jwt_decode(jwtToken);
         console.log(decodedToken);
         const userId = decodedToken.sub;
+        history.push("/locaties");
 
         fetchUserData(jwtToken, userId);
     }
 
     async function fetchUserData(token, id) {
         try {
-            const result = await axios.get(`http://localhost:8084/users/${id}`, {
+            const result = await axios.get(`http://localhost:8084/authenticated`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,

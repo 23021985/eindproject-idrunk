@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
-
 import {BrowserRouter as Router} from "react-router-dom";
 import AuthContextProvider from "./context/AuthContext";
+import { BookingProvider} from "./context/BookingContext";
 
 ReactDOM.render(
 
   <React.StrictMode>
       <Router>
       <AuthContextProvider>
+            <BookingProvider>
             <App />
+            </BookingProvider>
       </AuthContextProvider>
       </Router>
   </React.StrictMode>,

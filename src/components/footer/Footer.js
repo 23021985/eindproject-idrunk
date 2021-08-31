@@ -20,7 +20,7 @@ function Footer(){
                        <div id="logo3"></div>
                    </label>
 
-               <div className={"buttons"}>
+               <div className="buttons">
                    <ul className="logo">
 
                        <li>

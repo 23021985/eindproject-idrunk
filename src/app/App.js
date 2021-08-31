@@ -56,6 +56,11 @@ function App() {
                                     <StorkReserveren/>
                                 </Route>
 
+
+                                <Route path="/stork/checkbooking">
+                                    <StorkReserveren/>
+                                </Route>
+
                                 <Route path="/contact">
                                     <ContactPaginaIdrunk/>
                                 </Route>
