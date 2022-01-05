@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 export const AuthContext = createContext({});
 
+
 function AuthContextProvider({ children }) {
     const [ authState, setAuthState ] = useState({
         user: null,
@@ -13,7 +14,12 @@ function AuthContextProvider({ children }) {
 
     const history = useHistory();
 
-    function isTokenValid(jwtToken) {
+    function isTokenValid() {
+        const jwtToken = localStorage.getItem('token');
+
+        if(!jwtToken) return false;
+
+
         const decodedToken = jwt_decode(jwtToken);
         const expirationUnix = decodedToken.exp; // let op: dit is een UNIX timestamp
 
@@ -29,7 +35,7 @@ function AuthContextProvider({ children }) {
     useEffect(() => {
         const token = localStorage.getItem('token');
 
-        if(!authState.user && token && isTokenValid(token)) {
+        if(!authState.user && token && isTokenValid()) {
             const decodedToken = jwt_decode(token);
 
             fetchUserData(token, decodedToken.sub);
@@ -66,13 +72,14 @@ function AuthContextProvider({ children }) {
         const decodedToken = jwt_decode(jwtToken);
         console.log(decodedToken);
         const userId = decodedToken.sub;
+        history.push("/locaties");
 
         fetchUserData(jwtToken, userId);
     }
 
     async function fetchUserData(token, id) {
         try {
-            const result = await axios.get(`http://localhost:3000/600/users/${id}`, {
+            const result = await axios.get(`http://localhost:8084/authenticated`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
@@ -82,12 +89,13 @@ function AuthContextProvider({ children }) {
 
             setAuthState({
                 user: {
-                    voornaam: result.data.voornaam,
-                    achternaam: result.data.achternaam,
-                    leeftijd: result.data.leeftijd,
+                    voornaam: result.data.firstName,
+                    achternaam: result.data.lastName,
+                    leeftijd: result.data.age,
                     email: result.data.email,
                     password: result.data.password,
                     username: result.data.username,
+                    authority: result.data.authorities[0].authority
                     // als je ook rollen hebt, plaats je die er ook bij!
                 },
                 status: 'done',
@@ -100,6 +108,9 @@ function AuthContextProvider({ children }) {
     }
 
     function logout() {
+        localStorage.removeItem("token");
+        setAuthState({user: null, status: "done"});
+        history.push("/");
         console.log('logout!');
     }
 
@@ -109,15 +120,8 @@ function AuthContextProvider({ children }) {
         ...authState,
         login: login,
         logout: logout,
+        isTokenValid: isTokenValid,
     };
-
-
-
-
-
-
-
-
 
 
     //NOVA RETURN
@@ -126,7 +130,6 @@ function AuthContextProvider({ children }) {
             {authState.status === 'pending'
                 ? <p>Loading...</p>
                 : children
-
             }
         </AuthContext.Provider>
     );

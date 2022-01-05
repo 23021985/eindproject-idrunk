@@ -1,10 +1,12 @@
+import "./HomePage.css"
+
 function HomePage(){
 
 
     return(
         <>
             <main>
-                <h2>Welkom bij IDRUNK</h2>
+                <h1 className="welkom">Welkom bij IDRUNK</h1>
 
             </main>
         </>

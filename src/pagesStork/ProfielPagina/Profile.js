@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import {AuthContext} from "../../context/AuthContext";
 import "./Profile.css"
@@ -28,57 +28,96 @@ import "./Profile.css"
 
 function Profile() {
     const [privateContent, setPrivateContent] = useState({});
-
-    const { user } = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
     console.log(user); // geeft { user: { username: 'string waarde', email: 'string waarde', id: 'string waarde', country: 'string waarde' }
 
-    useEffect(() => {
-        const token = localStorage.getItem('token');
+    // const [content, setContent] = useState(null);
+    const [users, setUsers] = useState([]);
+    const history = useHistory();
+    const toMakeBooking = () => {
+        history.push("/stork/reserveren")
+    }
 
-        async function getPrivateContent() {
-            try {
-                const result = await axios.get('http://localhost:3000/660/private-content', {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
-                    }
-                });
+        useEffect(() => {
+            const token = localStorage.getItem('token');
 
-                console.log(result.data);
-                setPrivateContent(result.data);
-            } catch(e) {
-                console.error(e);
-            }
-        }
-
-        getPrivateContent();
-    }, []);
-
-    return (
-        <><div className="achtergrond">
-            <div className="content">
-                <h1>Profielpagina</h1>
-                    <section>
-                        <h2>Gegevens</h2>
-                        {user &&
-                        <>
-                            <p><strong>Gebruikersnaam:</strong> {user.username}</p>
-                            <p><strong>Email:</strong> {user.email}</p>
-                        </>
+            async function getPrivateContent() {
+                try {
+                    const result = await axios.get('http://localhost:8083/users', {
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`,
                         }
-                    </section>
-                {privateContent &&
-                    <section>
-                        <h2>Afgeschermde content voor ingelogde gebruikers</h2>
-                        <h4>{privateContent.title}</h4>
-                        <p>{privateContent.content}</p>
-                    </section>
+                    });
+
+                    console.log(result.data);
+                    setPrivateContent(result.data);
+                } catch (e) {
+                    console.error(e);
                 }
-                <p>Terug naar de <Link to="/">Homepagina</Link></p>
-            </div>
-        </div>
-        </>
-    );
+            }
+
+            getPrivateContent();
+        }, []);
+
+        return (
+            <>
+                <div className="achtergrond">
+                    <div className="content">
+                        {user.authority === "USER" ? (
+                                <>
+                                    <h1>Welcome back <span className="name-account-holder">{user.username}</span></h1>
+
+                                </>
+                            ) :
+                            (
+                                <></>
+                            )
+                        }
+                        {console.log(user)}
+                        {user.authority === "ADMIN" ? (
+                            <>
+                                <h1>Users</h1>
+                                <ul>
+                                    {users.map(user => {
+                                        return <li>{user.username}</li>
+                                    })}
+                                    <p>klik <Link to="/">hier</Link>om de menukaart te uploaden</p>
+                                </ul>
+                            </>
+                        ) : (
+                            <></>
+                        )}
+
+                        <h1>Profielpagina</h1>
+                        <section>
+                            <h2>Gegevens</h2>
+                            {user &&
+                            <>
+                                <p><strong>Gebruikersnaam:</strong> {user.username}</p>
+                                <p><strong>Email:</strong> {user.email}</p>
+                                <p>rekeningen</p>
+                                <p>plaats bestelling</p>
+                                <p>reserveer</p>
+
+                                  <p>klik</p>  <Link to="/adminpage" activeClassName="active-link">hier</Link> <p>om naar de adminpagina te gaan</p>
+
+                            </>
+                            }
+                        </section>
+                        {/*{privateContent &&*/}
+                        {/*<section>*/}
+                        {/*    <h2>Afgeschermde content voor ingelogde gebruikers</h2>*/}
+                        {/*    <h4>{privateContent.title}</h4>*/}
+                        {/*    <p>{privateContent.content}</p>*/}
+                        {/*</section>*/}
+                        {/*}*/}
+                        <p>Terug naar de <Link to="/">Homepagina</Link></p>
+                    </div>
+                </div>
+            </>
+        );
+
 }
 
 export default Profile;

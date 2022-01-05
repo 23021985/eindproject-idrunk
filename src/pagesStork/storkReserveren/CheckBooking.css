@@ -1,0 +1,28 @@
+.booking-check-page {
+    width: 1200px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    box-shadow: 5px 6px 15px 5px rgba(0,0,0,0.5);
+    margin: 100px auto;
+    text-align: center;
+}
+
+.bookings-check {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: yellow;
+}
+.reservation-overview p {
+    font-size: 25px;
+    background-color: blue;
+}
+
+.main-reservation-container{
+    background-color: white;
+}

@@ -10,16 +10,17 @@
     border: 1px solid white;
     border-radius: 20px;
     box-shadow: 1px 1px 1px gray;
-    background-image: url("/src/assets/cocktail.jpeg");
+    /*background-image: url("/src/assets/cocktail.jpeg");*/
     text-align: center;
+    background-color: darkslategray;
 }
 
 .achtergrond{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 500px;
     background-color: transparent;
     margin-left: 300px;
 }

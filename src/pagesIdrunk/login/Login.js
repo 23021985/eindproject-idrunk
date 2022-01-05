@@ -3,7 +3,6 @@ import {NavLink, Link} from "react-router-dom";
 import "./Login.css"
 import {useForm} from "react-hook-form";
 import axios from "axios";
-import input from "../../components/input/Input";
 import {AuthContext} from "../../context/AuthContext";
 import {useContext} from "react"
 import Input from "../../components/input/Input";
@@ -12,17 +11,16 @@ function Login() {
 
     const {register, handleSubmit, formState:{errors}, watch} = useForm();
     const { login } = useContext(AuthContext);
-    // const alles =  useContext(AuthContext)
+
 
     async function onSubmit(data) {
-        // console.log(data);
-        // console.log(alles);
+        console.log(data);
         try {
-            const result = await axios.post('http://localhost:3000/login', data);
+            const result = await axios.post('http://localhost:8084/authenticate', data);
             console.log(result);
-            login(result.data.accessToken);
+            login(result.data.jwt);
         } catch(e) {
-            console.error(e, "he jammer hij is kapot");
+            console.error(e, "helaas, er is iets mis gegaan");
         }
     }
 
@@ -34,15 +32,16 @@ function Login() {
 
                     <label htmlFor="username" className="loginLabel">
                         Gebruikersnaam:
+
+
                         <Input
-                            name="email"
-                            labelId="emailId"
+                            name="username"
+                            labelId="usernameId"
                             type="text"
-                            placeholder="e-mail adres"
+                            placeholder="Username.."
                             required={true}
                             register={register}
                             errors={errors}
-                            pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
                             patternError="Please enter a valid e-mail adress"
                         />
                     </label>
@@ -57,7 +56,6 @@ function Login() {
                             required={true}
                             register={register}
                             errors={errors}
-                            // pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
                             pattern={errors.password && errors.password.type === "pattern" && <span className="errormessage-pattern">Het wachtwoord moet minimaal 1 Hoofdletter, 1 kleine letter en een cijfer bevatten</span>}
                             patternError="Wachtwoord voldoet niet aan de eisen"
                         />
@@ -65,6 +63,7 @@ function Login() {
 
                     <button type="submit">Inloggen</button>
                     <Link to="/subscribe" activeClassName="active-link">Inschrijven</Link>
+                    {/*<Link to="/lostpassword" style={{color: 'white',textDecoration: 'none'}}>Wachtwoord vergeten?</Link></div>*/}
                 </div>
         </form>
     </main>

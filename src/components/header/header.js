@@ -7,8 +7,8 @@ import {AuthContext} from "../../context/AuthContext";
 
 function Header(){
     const history = useHistory();
-    const { user } = useContext(AuthContext);
-    console.log(user);
+    const { user, logout } = useContext(AuthContext);
+    // console.log(user);
 
     return(
       <header>
@@ -32,14 +32,16 @@ function Header(){
           {/*        </button>*/}
           {/*    )}*/}
           {/*</div>*/}
-
+<ul className="buttonBox">
           <li>
-              <button type="button" onClick={() => history.push("/homePage")}>Log uit</button>
+              <button type="button" id="leButton" onClick={logout}>Log uit</button>
           </li>
 
           <li>
-              <button type="button" onClick={() => history.push("/Login")}>Log in</button>
+              <button type="button" id="leButton" onClick={() => history.push("/Login")}>Log in</button>
           </li>
+</ul>
+
 
           <Hamburger/>
       </header>
